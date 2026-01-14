@@ -206,7 +206,7 @@ $form = New-Object System.Windows.Forms.Form
 $form.Text = "Project Tool"
 $form.Size = New-Object System.Drawing.Size(560, 320)
 $form.StartPosition = "CenterScreen"
-$form.TopMost = $true
+$form.TopMost = $false
 
 $pathLabel = New-Object System.Windows.Forms.Label
 $pathLabel.Text = "Target Path:"
