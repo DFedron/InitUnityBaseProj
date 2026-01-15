@@ -98,6 +98,14 @@ function Run-ProjectTask([string]$ProjectName, [string]$TargetPath, [System.Wind
             [System.Windows.Forms.MessageBox]::Show("Failed to clone unitybase into: $basePath", "Error")
             return
         }
+        
+        Set-Location $basePath
+        & git checkout $ProjectName 2>&1 | ForEach-Object { Append-Log $_ }
+
+        if ($LASTEXITCODE -ne 0) {
+            Append-Log "git checkout failed."
+            return
+        }
     } else {
         Append-Log "Base folder exists: $basePath"
     }
